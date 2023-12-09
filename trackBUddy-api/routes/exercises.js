@@ -26,4 +26,10 @@ router.route('/add').post((req,res)=>{
         .catch(err => res.status(400).json('Error:'+err))
 });
 
+router.route('/:id').get((req,res)=>{
+    Exercises.findById(req.params.id)
+        .then(exercise => exercise)
+        .catch(err => res.status(400).json('Error:'+err))
+})
+
 module.exports = router;
