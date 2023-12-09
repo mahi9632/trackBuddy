@@ -9,6 +9,7 @@ import {
 import Exercises from './components/Exercises.component';
 import CreateExercises from './components/CreateExercises.comonent';
 import Navbar from "./components/NavBar"
+import CreateUsers from './components/CreateUsers.components';
 function App() {
   return (
     <>
@@ -18,7 +19,7 @@ function App() {
         <Route path="/" element={<Exercises />} />
         {/* <Route path="/edit/:id" element={<EditExercises />} /> */}
         <Route path="/create" element={<CreateExercises />} />
-        {/* <Route path="/user" element={<CreateUsers />} /> */}
+        <Route path="/user" element={<CreateUsers />} />
         </Routes>
       </Router>
     </>
