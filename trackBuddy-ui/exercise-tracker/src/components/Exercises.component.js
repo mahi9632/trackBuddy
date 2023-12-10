@@ -7,7 +7,7 @@ import { deleteExercises, getExercises } from './services/api';
 
 const Exercises = () => {
     const [exercises, setExercises] = useState([])
-    const [reload,setReload] = useState(true)
+    const [reload,setReload] = useState(false)
     const [editView,setEditView] = useState(false)
 
     useEffect(() => {
@@ -17,7 +17,11 @@ const Exercises = () => {
 
     const handleDelete = (id) =>{
         deleteExercises(id)
-        setReload(!reload)
+        setReload(true)
+        setTimeout(()=>{
+            setReload(false)
+        },1000)
+        return 
     }
 
     const handleEdit = (id) =>{
