@@ -11,4 +11,9 @@ export const addExercise = async(body) =>{
     let results = await axios.get(`${baseUrl}/users/`)
     return results?.data
  }
+ 
+ export const getExercises = async() =>{
+   let results = await axios.get(`${baseUrl}/exercises/`)
+   return results?.data
+}
 
