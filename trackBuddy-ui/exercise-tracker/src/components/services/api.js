@@ -22,3 +22,9 @@ export const addUsers = async(body) =>{
    // console.log(results?.data,"ress");
    return results?.data
 }
+
+export const deleteExercises = async(id) =>{
+   let results = await axios.delete(`${baseUrl}/exercises/${id}`)
+   console.log(results?.data,"respp");
+   return results?.data
+ }
