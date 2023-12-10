@@ -20,6 +20,7 @@ let ExercisesData = [
     }
 ]
 const  Exercises = ()=>{
+    
     return (
        <div>
       <div className='container-fluid' style={{ width: '80%', alignItems: 'center' }}>

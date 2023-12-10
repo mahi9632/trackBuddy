@@ -10,6 +10,7 @@ const  CreateExercises = ()=>{
      const [description, setDescription] = useState('')
      const [duration, setDuration] = useState(0)
      const [date, setDate] = useState(new Date())
+     const [username,setUserName] = useState();
 
     useEffect(()=>{
         getUsers()
@@ -20,17 +21,36 @@ const  CreateExercises = ()=>{
     const handleDescription = (data) => {
         setDescription(data)
     }
+    const handleDropdown = (data) =>{
+        setUserName(data)
+    }
+
+    const handleSubmit = async(e) =>{
+        e.preventDefault()
+        let exercise = {
+            username: username,
+            description:description,
+            duration: duration,
+            date:date
+        }
+        const results = await addExercise(exercise)
+        console.log(results,"submit result");
+    }
 
     return (
        <div className='container' style={{ width: '40%' }}>
         <h3>Create Exercises</h3>
         <br/>
-        <form styles={{flex:1}}>
+        <form styles={{flex:1}} onSubmit={(e)=>handleSubmit(e)}>
             <div className='form-group'>
                 <div>
                 <label>Username</label><br/>
                 {console.log(usersData,"usersData")}
-                <select>
+                <select
+                value={username}
+                onChange={e=>{handleDropdown(e.target.value)}}
+                selected
+                >
                     <option>select User</option>
                     {usersData && usersData.map(ele=><option>{ele.username}</option>)
 
