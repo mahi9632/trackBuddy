@@ -26,9 +26,12 @@ const  CreateUsers = ()=>{
             position: toast.POSITION.TOP_CENTER,
             className: 'foo-bar'
           });
+         setInterval(() => {
+            setUserAdded(false)
+         }, 5000);
     },[userAdded])
     return (
-        <div className='container ' style={{ width: '40%' }}>
+        <div className='container mt-4 p-4 ' style={{ width: '40%',background:'#D3D3D3' }}>
         {userAdded && < ToastContainer/>}
         <h3>Create New User </h3>
         <br />
